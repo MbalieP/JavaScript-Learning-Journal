@@ -1,0 +1,39 @@
+// ✅ SPREAD OPERATOR (...)
+// The spread operator allows an iterable (like an array or a string)
+// to be expanded into individual elements.
+// It's useful for copying arrays, combining arrays, spreading into function arguments, etc.
+
+// ------------ EXAMPLE 1: Spreading into a function ------------
+
+// Array of numbers
+let numbers = [1, 2, 3, 4, 5];
+
+// Math.max() normally expects individual arguments, not an array
+// Without spread: Math.max(numbers) => NaN
+// With spread: expands to Math.max(1, 2, 3, 4, 5)
+let maximum = Math.max(...numbers);
+let minimum = Math.min(...numbers);
+
+console.log("Max:", maximum); // Output: Max: 5
+console.log("Min:", minimum); // Output: Min: 1
+
+// ------------ EXAMPLE 2: Spreading a string into characters ------------
+
+// A string is an iterable, so we can spread it into an array of characters
+let username = "Bro Code";
+let letters = [...username];  // ['B', 'r', 'o', ' ', 'C', 'o', 'd', 'e']
+
+console.log("Characters in username:", letters);
+
+// ------------ EXAMPLE 3: Combining arrays using spread ------------
+
+// Two arrays of food items
+let fruits = ["apple", "orange", "banana"];
+let vegetables = ["carrots", "celery", "potatoes"];
+
+// Using the spread operator to merge multiple arrays
+// and include additional elements ("eggs" and "milk")
+let foods = [...fruits, ...vegetables, "eggs", "milk"];
+
+// Equivalent to: ["apple", "orange", "banana", "carrots", "celery", "potatoes", "eggs", "milk"]
+console.log("All foods:", foods);
