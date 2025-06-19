@@ -1,0 +1,19 @@
+// Assignment operator (=): Assigns a value to a variable
+// Comparison operator (==): Checks if two values are equal, type coercion is allowed
+// Strict equality operator (===): Checks if two values are equal and of the same type (no type coercion)
+// Inequality operator (!=): Checks if two values are not equal, type coercion is allowed
+// Strict inequality operator (!==): Checks if two values are not equal and/or not of the same type
+
+const PI = 3.14; // Assigning the value of Pi to a constant variable
+
+// Check if the value of PI is strictly equal to the string "3.14"
+if (PI === "3.14") {
+    console.log("That is NOT Pi"); // This block executes if the condition is true
+} else {
+    console.log("That is Pi"); // This block executes if the condition is false
+}
+
+// Additional Information:
+// - Using the strict equality operator (===) is generally recommended to avoid unexpected type coercion.
+// - In this case, the condition evaluates to false because the number 3.14 (number type) is not the same as "3.14" (string type).
+// - Always prefer strict comparisons to ensure both value and type match, which leads to more predictable code behavior.
