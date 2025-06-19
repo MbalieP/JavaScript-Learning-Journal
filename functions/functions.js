@@ -45,7 +45,7 @@ function isValidEmail(email) {
 }
 
 // Calling the happyBirthday function with parameters
-console.log(happyBirthday("BroCode", 25)); // Outputs the birthday message for "BroCode" aged 25
+console.log(happyBirthday("mbali", 25)); // Outputs the birthday message for "BroCode" aged 25
 
 // Calling the isValidEmail function to validate an email address
-console.log(isValidEmail("Bro@fake.com")); // Outputs true if the email is valid
+console.log(isValidEmail("Mbali@gmail.com")); // Outputs true if the email is valid
