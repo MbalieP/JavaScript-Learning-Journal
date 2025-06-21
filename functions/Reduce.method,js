@@ -1,0 +1,74 @@
+// .reduce() = a method that reduces the elements of an array to a single value using a callback function.
+// It iterates through the array and applies the callback, accumulating a result as it goes.
+
+// The syntax is: array.reduce(callback(accumulator, currentValue, index, array), initialValue)
+// - callback: a function that takes four arguments: accumulator, currentValue, index, and the original array
+// - initialValue: an optional value to start the accumulation (if not provided, the first element is used)
+
+// ----------- EXAMPLE 1 -----------
+const prices = [5, 30, 10, 25, 15, 20]; // An array of prices
+
+// Using reduce to calculate the total sum of prices
+const total = prices.reduce(sum); // Returns the total price by summing all elements
+
+console.log(`$${total.toFixed(2)}`); // Outputs the total price formatted to two decimal places
+
+// Callback function to sum the prices
+function sum(accumulator, element) {
+    return accumulator + element; // Adds the current element to the accumulator
+}
+
+// ----------- EXAMPLE 2 -----------
+const scores = [75, 50, 90, 80, 65, 95]; // An array of scores
+
+// Using reduce to find the maximum score
+const maximum = scores.reduce(getMax); // Returns the highest score
+// Using reduce to find the minimum score
+const minimum = scores.reduce(getMin); // Returns the lowest score
+
+console.log(maximum); // Outputs the maximum score
+console.log(minimum); // Outputs the minimum score
+
+// Callback function to get the maximum value
+function getMax(accumulator, element) {
+    return Math.max(accumulator, element); // Returns the maximum of the two values
+}
+
+// Callback function to get the minimum value
+function getMin(accumulator, element) {
+    return Math.min(accumulator, element); // Returns the minimum of the two values
+}
+
+// ----------- ADDITIONAL EXAMPLE -----------
+const numbers = [1, 2, 3, 4, 5]; // An array of numbers
+
+// Using reduce to calculate the product of all numbers
+const product = numbers.reduce(multiply, 1); // Starts with an initial value of 1
+
+console.log(product); // Outputs the product of all numbers
+
+// Callback function to multiply the elements
+function multiply(accumulator, element) {
+    return accumulator * element; // Multiplies the accumulator by the current element
+}
+
+// ----------- ADDITIONAL EXAMPLE 2 -----------
+const words = ['hello', 'world', 'this', 'is', 'reduce']; // An array of words
+
+// Using reduce to concatenate all words into a single string
+const concatenated = words.reduce(concatWords, ''); // Starts with an initial value of an empty string
+
+console.log(concatenated); // Outputs the concatenated string
+
+// Callback function to concatenate strings
+function concatWords(accumulator, element) {
+    return accumulator + ' ' + element; // Adds the current word to the accumulator with a space
+}
+
+/*
+Additional Notes:
+- The reduce() method does not modify the original array; it produces a new value.
+- If an initialValue is provided, reduce() will start with that value; otherwise, it will use the first element of the array as the initial accumulator.
+- The reduce() method can be used for a variety of operations, such as summing values, counting occurrences, flattening arrays, and more.
+- Using arrow functions can make the code more concise, e.g., numbers.reduce((acc, curr) => acc + curr, 0).
+*/
