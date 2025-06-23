@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 24px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <label id="xlabel"></label><br>
+    <label id="ylabel"></label><br>
+    <label id="zlabel"></label><br>
+    <button type="button" id="rollbutton">Roll</button>
+    
+    <script>
+        // Declare variables to store the values of the dice rolls
+        let x;
+        let y;
+        let z;
+
+        // Event listener for the "rollbutton" click event
+        document.getElementById("rollbutton").onclick = function() {
+            // Generate random numbers for the dice rolls (1 to 6)
+            x = Math.floor(Math.random() * 6) + 1; // Roll for first die
+            y = Math.floor(Math.random() * 6) + 1; // Roll for second die
+            z = Math.floor(Math.random() * 6) + 1; // Roll for third die
+
+            // Update the HTML elements with the results of the rolls
+            document.getElementById("xlabel").innerHTML = `Die 1: ${x}`; // Display result for first die
+            document.getElementById("ylabel").innerHTML = `Die 2: ${y}`; // Display result for second die
+            document.getElementById("zlabel").innerHTML = `Die 3: ${z}`; // Display result for third die
+        }
+
+        /*
+        Additional Information:
+        - Math.random(): Returns a floating-point, pseudo-random number in the range from 0 (inclusive) to 1 (exclusive).
+        - Math.floor(): Rounds down to the nearest whole number. Combined with Math.random(), it generates integers suitable for dice rolls (1-6).
+        - The results are displayed in labels with IDs: xlabel, ylabel, and zlabel.
+        
+        Example Usage:
+        1. Open this HTML file in a web browser.
+        2. Click the "Roll" button.
+        3. Observe the results for each of the three dice displayed below the button.
+        */
+    </script>
+</body>
+</html>
