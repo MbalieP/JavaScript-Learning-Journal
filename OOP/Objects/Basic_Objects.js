@@ -44,9 +44,3 @@ person1.eat(); // Output: I am eating a Krabby Patty
 person2.sayHello(); // Output: Hey, I'm Patrick...
 person2.eat(); // Output: I am eating roast beef, chicken, and pizza
 
-// Additional Information:
-// Objects can also contain nested objects, arrays, and other data types.
-// You can easily extend objects by adding new properties or methods.
-// Example of adding a new property:
-person1.favoriteFood = "Krabby Patty"; // Adding a new property
-console.log(person1.favoriteFood); // Output: Krabby Patty
