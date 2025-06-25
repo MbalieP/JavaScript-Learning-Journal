@@ -16,6 +16,45 @@ const library = {
             }
         });
     },
+    // Method to borrow a book by title
+    borrowBook: function (title) {
+        const book = this.books.find(b => b.title === title);
+        if (book) {
+            if (book.isAvailable) {
+                book.isAvailable = false;
+                console.log(`✅ You borrowed "${book.title}"`);
+            } else {
+                console.log(`❌ "${book.title}" is currently not available`);
+            }
+        } else {
+            console.log(`❌ Book titled "${title}" not found in the library.`);
+        }
+    },
+
+    // Method to return a book
+    returnBook: function (title) {
+        const book = this.books.find(b => b.title === title);
+        if (book) {
+            book.isAvailable = true;
+            console.log(`🔁 You returned "${book.title}". Thank you!`);
+        } else {
+            console.log(`⚠️ This book doesn't belong to ${this.name}.`);
+        }
+    },
+
+    // Method to add a new book
+    addBook: function (title, author) {
+        this.books.push({
+            title: title,
+            author: author,
+            isAvailable: true
+        });
+        console.log(`📗 New book added: "${title}" by ${author}`);
+    }
+};
+
+
+    
 
     
     
