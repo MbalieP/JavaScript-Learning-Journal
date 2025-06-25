@@ -52,6 +52,17 @@ const library = {
         console.log(`📗 New book added: "${title}" by ${author}`);
     }
 };
+// Usage examples
+library.showAvailableBooks(); // Lists only books that are available
+
+library.borrowBook("1984");   // Marks the book as borrowed
+library.borrowBook("1984");   // Tries to borrow again, should say not available
+
+library.returnBook("1984");   // Marks it available again
+
+library.addBook("Brave New World", "Aldous Huxley"); // Adds a new book
+
+library.showAvailableBooks(); // Updated list
 
 
     
