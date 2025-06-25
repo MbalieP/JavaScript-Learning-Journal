@@ -42,5 +42,15 @@ const student = {
     }
 };
 
+// Usage
+console.log(student.getFullName()); // Output: Zanele Mokoena
+
+student.printReport();
+/*
+📘 Report for Zanele Mokoena (ST10293):
+- Mathematics: Avg = 82.67
+- English: Avg = 70.67
+- Computer Science: Avg = 90.00
+*/
 
 
