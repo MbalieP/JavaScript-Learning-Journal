@@ -1,0 +1,173 @@
+// ✅ Product class: blueprint for store items
+class Product {
+    #price;
+    constructor(id, name, price) {
+        this.id = id;
+        this.name = name;
+        this.#price = price;
+    }
+
+    get price() {
+        return this.#price;
+    }
+
+    set price(value) {
+        if (value < 0) throw new Error("❌ Price must be non-negative.");
+        this.#price = value;
+    }
+
+    display() {
+        console.log(`🛒 ${this.name} (ID: ${this.id}) - $${this.#price.toFixed(2)}`);
+    }
+
+    static isSame(p1, p2) {
+        return p1.id === p2.id;
+    }
+}
+
+// 🧺 CartItem: single product + quantity
+class CartItem {
+    constructor(product, quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    get total() {
+        return this.product.price * this.quantity;
+    }
+
+    display() {
+        console.log(`🧾 ${this.quantity} x ${this.product.name} = $${this.total.toFixed(2)}`);
+    }
+}
+
+// 🧺 Cart class: holds CartItems and manages logic
+class Cart {
+    constructor() {
+        this.items = [];
+    }
+
+    addItem(product, quantity = 1) {
+        const existing = this.items.find(i => Product.isSame(i.product, product));
+        if (existing) {
+            existing.quantity += quantity;
+        } else {
+            this.items.push(new CartItem(product, quantity));
+        }
+        console.log(`✅ Added ${quantity} x ${product.name}`);
+    }
+
+    removeItem(productId) {
+        const index = this.items.findIndex(i => i.product.id === productId);
+        if (index !== -1) {
+            const removed = this.items.splice(index, 1)[0];
+            console.log(`🗑️ Removed: ${removed.product.name}`);
+        } else {
+            console.log(`❌ Item with ID ${productId} not found.`);
+        }
+    }
+
+    get itemCount() {
+        return this.items.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    get subtotal() {
+        return this.items.reduce((sum, item) => sum + item.total, 0);
+    }
+
+    displayCart() {
+        if (this.items.length === 0) {
+            console.log("🛒 Cart is empty.");
+        } else {
+            console.log(`🧺 Cart (${this.itemCount} items):`);
+            this.items.forEach(item => item.display());
+            console.log(`Subtotal: $${this.subtotal.toFixed(2)}`);
+        }
+    }
+
+    clear() {
+        this.items = [];
+        console.log("🧼 Cart has been cleared.");
+    }
+}
+
+// 📦 Order class: represents completed cart with totals
+class Order {
+    constructor(cart, taxRate = 0.1, discount = 0) {
+        this.timestamp = new Date();
+        this.items = [...cart.items];
+        this.taxRate = taxRate;
+        this.discount = discount;
+        this.total = this.#calculateTotal();
+    }
+
+    #calculateTotal() {
+        const subtotal = this.items.reduce((sum, item) => sum + item.total, 0);
+        const taxed = subtotal + (subtotal * this.taxRate);
+        return taxed - this.discount;
+    }
+
+    displaySummary() {
+        console.log(`🧾 Order Summary [${this.timestamp.toLocaleString()}]:`);
+        this.items.forEach(item => item.display());
+        console.log(`💸 Total (with tax & discount): $${this.total.toFixed(2)}`);
+    }
+}
+
+// 👤 User class: owns cart and order history
+class User {
+    constructor(username) {
+        this.username = username;
+        this.cart = new Cart();
+        this.orders = [];
+    }
+
+    checkout(taxRate = 0.1, discount = 0) {
+        if (this.cart.items.length === 0) {
+            console.log("❌ Cart is empty. Cannot checkout.");
+            return;
+        }
+        const order = new Order(this.cart, taxRate, discount);
+        this.orders.push(order);
+        order.displaySummary();
+        this.cart.clear();
+    }
+
+    viewOrders() {
+        if (this.orders.length === 0) {
+            console.log("📭 No previous orders.");
+        } else {
+            console.log(`📚 Order history for ${this.username}:`);
+            this.orders.forEach((order, index) => {
+                console.log(`\n🧾 Order #${index + 1}:`);
+                order.displaySummary();
+            });
+        }
+    }
+}
+
+// 🧪 DEMO
+
+// 🛍️ Products
+const apple = new Product(1, "Apple", 2.5);
+const banana = new Product(2, "Banana", 1.2);
+const milk = new Product(3, "Milk", 4.5);
+
+// 👩‍💻 User
+const user = new User("mbali");
+
+// ➕ Add to cart
+user.cart.addItem(apple, 4);
+user.cart.addItem(banana, 2);
+user.cart.addItem(milk, 1);
+
+console.log("\n🧺 Current Cart:");
+user.cart.displayCart();
+
+// 🧾 Checkout with 10% tax and R5 discount
+console.log("\n💳 Checking out...");
+user.checkout(0.1, 5);
+
+// 📚 View Order History
+console.log("\n📦 Order History:");
+user.viewOrders();
