@@ -63,6 +63,29 @@ acc2.showTransactions();
             console.log(`${index + 1}. ${tx.type} of ${this.formatRands(tx.amount)} on ${dateStr}`);
         });
     }
+      // 💰 Check balance
+    getBalance() {
+        console.log(`💼 ${this.owner}'s balance: ${this.formatRands(this.balance)}`);
+    }
 
-  
+    // 🌐 Static method for generating unique account numbers
+    static generateAccountNumber() {
+        return Math.floor(100000000 + Math.random() * 900000000); // Random 9-digit number
+    }
+
+    // 📦 Format amounts into Rands (R1,234.56)
+    formatRands(amount) {
+        return amount.toLocaleString("en-ZA", {
+            style: "currency",
+            currency: "ZAR"
+        });
+    }
+
+    // 🏦 Static method to get bank info
+    static getBankInfo() {
+        console.log(`🏦 Welcome to ${this.bankName}`);
+    }
+}
+
+
  
