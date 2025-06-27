@@ -21,7 +21,23 @@ class BankAccount {
             date: new Date()
         });
         console.log(`✅ ${this.owner} deposited ${this.formatRands(amount)}. New balance: ${this.formatRands(this.balance)}`);
+    
     }
+    // 📌 Usage example
+BankAccount.getBankInfo();  // Static method call
+
+const acc1 = new BankAccount("Mbali", "Savings", 3000);
+const acc2 = new BankAccount("Lebo", "Cheque", 1000);
+
+// Transactions
+acc1.deposit(2000);
+acc1.withdraw(500);
+acc1.withdraw(10000); // Should fail
+acc1.getBalance();
+acc1.showTransactions();    
+
+
+  
 
   
 
