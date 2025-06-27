@@ -23,6 +23,9 @@ function BankAccount(owner, balance = 0) {
             console.log(`${this.owner} withdrew R${amount}. Remaining balance: R${this.balance}`);
         }
     };
+    //  Creating  bank accounts
+const account1 = new BankAccount("Mbali", 1500);  // Starting with R1500
+const account2 = new BankAccount("Thabo", 750);   // Starting with R750
         // Method to check the balance
     this.getBalance = function() {
         console.log(` ${this.owner}'s current balance: R${this.balance}`);
