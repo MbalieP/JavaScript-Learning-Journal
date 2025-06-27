@@ -1,0 +1,7 @@
+// 🛠️ Constructor Function Example in JavaScript
+
+// A constructor is a **special function** used to create and initialize objects.
+// When called with the `new` keyword, it sets up a **template** for creating multiple similar objects.
+// This is part of JavaScript's approach to **object-oriented programming** (OOP).
+
+
