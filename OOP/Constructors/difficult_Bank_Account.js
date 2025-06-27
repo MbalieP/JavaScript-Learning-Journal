@@ -80,7 +80,7 @@ class BankAccount {
     }
 }
 
-// 📌 Usage example
+// Usage example
 BankAccount.getBankInfo();  // Static method call
 
 const acc1 = new BankAccount("Mbali", "Savings", 3000);
