@@ -23,4 +23,8 @@ function BankAccount(owner, balance = 0) {
             console.log(`${this.owner} withdrew R${amount}. Remaining balance: R${this.balance}`);
         }
     };
+        // Method to check the balance
+    this.getBalance = function() {
+        console.log(` ${this.owner}'s current balance: R${this.balance}`);
+    };
     
