@@ -12,3 +12,15 @@ function BankAccount(owner, balance = 0) {
             console.log(" Deposit amount must be positive.");
         }
     };
+  // Method to withdraw money
+    this.withdraw = function(amount) {
+        if (amount <= 0) {
+            console.log("Withdrawal amount must be positive.");
+        } else if (amount > this.balance) {
+            console.log(`Insufficient funds! ${this.owner} has only R${this.balance}`);
+        } else {
+            this.balance -= amount;
+            console.log(`${this.owner} withdrew R${amount}. Remaining balance: R${this.balance}`);
+        }
+    };
+    
