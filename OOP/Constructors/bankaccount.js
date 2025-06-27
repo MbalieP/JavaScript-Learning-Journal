@@ -30,6 +30,10 @@ const account2 = new BankAccount("Thabo", 750);   // Starting with R750
     this.getBalance = function() {
         console.log(` ${this.owner}'s current balance: R${this.balance}`);
     };
-    
+ /  Interacting with the accounts
+account1.deposit(500);        // Mbali deposits R500 → R2000
+account1.withdraw(300);       // Mbali withdraws R300 → R1700
+account1.getBalance();        // Mbali's current balance: R1700
+   
     
     
