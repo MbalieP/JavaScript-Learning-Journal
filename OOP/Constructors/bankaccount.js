@@ -34,6 +34,11 @@ const account2 = new BankAccount("Thabo", 750);   // Starting with R750
 account1.deposit(500);        // Mbali deposits R500 → R2000
 account1.withdraw(300);       // Mbali withdraws R300 → R1700
 account1.getBalance();        // Mbali's current balance: R1700
+
+
+account2.deposit(200);        // Thabo deposits R200 → R950
+account2.withdraw(1000);      // Thabo tries to withdraw R1000 (fails)
+account2.getBalance();        // Thabo's current balance: R950    
    
     
     
