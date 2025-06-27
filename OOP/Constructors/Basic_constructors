@@ -4,4 +4,19 @@
 // When called with the `new` keyword, it sets up a **template** for creating multiple similar objects.
 // This is part of JavaScript's approach to **object-oriented programming** (OOP).
 
+function Car(make, model, year, color) {
+    // 🔧 Assigning properties to the object using 'this'
+    // 'this' refers to the current object being created
+    this.make = make;     // e.g., Ford, Chevrolet, Dodge
+    this.model = model;   // e.g., Mustang, Camaro, Charger
+    this.year = year;     // e.g., 2024, 2025, 2026
+    this.color = color;   // e.g., red, blue, silver
+
+    // 🚗 Defining a method inside the constructor
+    // Each Car object will have its own copy of this function (less memory efficient than defining on prototype)
+    this.drive = function() {
+        console.log(`You drive the ${this.model}`);
+    };
+}
+
 
