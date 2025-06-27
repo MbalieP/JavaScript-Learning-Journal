@@ -8,7 +8,8 @@ class BankAccount {
         this.transactions = []; // Store all transactions
         this.accountNumber = BankAccount.generateAccountNumber();
     }
-   // 📈 Deposit method with validation
+
+    // 📈 Deposit method with validation
     deposit(amount) {
         if (amount <= 0) {
             console.log("❌ Deposit must be more than R0");
@@ -21,34 +22,9 @@ class BankAccount {
             date: new Date()
         });
         console.log(`✅ ${this.owner} deposited ${this.formatRands(amount)}. New balance: ${this.formatRands(this.balance)}`);
-    
     }
-    // 📌 Usage example
-BankAccount.getBankInfo();  // Static method call
 
-const acc1 = new BankAccount("Mbali", "Savings", 3000);
-const acc2 = new BankAccount("Lebo", "Cheque", 1000);
-
-// Transactions
-acc1.deposit(2000);
-acc1.withdraw(500);
-acc1.withdraw(10000); // Should fail
-acc1.getBalance();
-acc1.showTransactions();    
-
-
-  
-
-  
-
-console.log("\n---\n");
-
-acc2.deposit(500);
-acc2.withdraw(300);
-acc2.getBalance();
-acc2.showTransactions();
-
-  // 📉 Withdraw method with error handling
+    // 📉 Withdraw method with error handling
     withdraw(amount) {
         if (amount <= 0) {
             console.log("❌ Withdrawal must be more than R0");
@@ -79,7 +55,8 @@ acc2.showTransactions();
             console.log(`${index + 1}. ${tx.type} of ${this.formatRands(tx.amount)} on ${dateStr}`);
         });
     }
-      // 💰 Check balance
+
+    // 💰 Check balance
     getBalance() {
         console.log(`💼 ${this.owner}'s balance: ${this.formatRands(this.balance)}`);
     }
@@ -103,5 +80,22 @@ acc2.showTransactions();
     }
 }
 
+// 📌 Usage example
+BankAccount.getBankInfo();  // Static method call
 
- 
+const acc1 = new BankAccount("Mbali", "Savings", 3000);
+const acc2 = new BankAccount("Lebo", "Cheque", 1000);
+
+// Transactions
+acc1.deposit(2000);
+acc1.withdraw(500);
+acc1.withdraw(10000); // Should fail
+acc1.getBalance();
+acc1.showTransactions();
+
+console.log("\n---\n");
+
+acc2.deposit(500);
+acc2.withdraw(300);
+acc2.getBalance();
+acc2.showTransactions();
