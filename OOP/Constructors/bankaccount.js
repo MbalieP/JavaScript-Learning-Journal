@@ -31,3 +31,5 @@ const account2 = new BankAccount("Thabo", 750);   // Starting with R750
         console.log(` ${this.owner}'s current balance: R${this.balance}`);
     };
     
+    
+    
