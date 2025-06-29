@@ -105,7 +105,7 @@ class Inventory {
     }
 }
 
-// 🧪 Demo
+//Demo
 
 const inv = new Inventory();
 
