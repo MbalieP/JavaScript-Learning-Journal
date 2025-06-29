@@ -1,4 +1,4 @@
-// 🚀 Advanced OOP Example: E-commerce Inventory System
+
 
 // 🧱 Base class: Product
 class Product {
