@@ -25,7 +25,7 @@ while (!loggedIn) { // Continue looping until loggedIn is true
 // - The while loop checks the condition before executing the code inside the loop.
 // - If the user inputs the correct credentials, they will be logged in; otherwise, they will be prompted again.
 
-// ---------- DO WHILE LOOP EXAMPLE ----------
+// ---------- DO WHILE LOOP EXAMPLE --------
 
 // Resetting loggedIn for demonstration of do...while loop
 loggedIn = false;
