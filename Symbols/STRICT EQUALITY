@@ -13,7 +13,7 @@ if (PI === "3.14") {
     console.log("That is Pi"); // This block executes if the condition is false
 }
 
-// Additional Information:
+// Additional Information =:
 // - Using the strict equality operator (===) is generally recommended to avoid unexpected type coercion.
 // - In this case, the condition evaluates to false because the number 3.14 (number type) is not the same as "3.14" (string type).
 // - Always prefer strict comparisons to ensure both value and type match, which leads to more predictable code behavior.
