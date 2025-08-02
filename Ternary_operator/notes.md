@@ -17,7 +17,7 @@ javascript
 Copy
 let age = 20;
 
-// Using ternary operator to check if the person is an adult
+// Using ternary operator to check if the person is an adult.
 let status = (age >= 18) ? "Adult" : "Minor";
 console.log(status); // Outputs: "Adult"
 In this example:
